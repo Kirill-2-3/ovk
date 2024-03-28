@@ -112,11 +112,12 @@
         --size_modal_title: 23px;
         --size_nav_header: 20px;
         --size_pagination: 18px;
-        --size_content_description_title: 24px;
+        --size_content_description_title: 20px;
         --size_content_subtitle: 18px;
         --size_nav_footer: 16px;
         --size_copyright: 12px;
         --height_header: 59px;
+        --size_modal_input: 16px;
     }
 }
 
@@ -282,6 +283,14 @@ button {
     background-color: var(--color_primary_3);
 }
 
+.show-burger .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
 .header__inner {
     display: -ms-flexbox;
     display: flex;
@@ -337,7 +346,6 @@ button {
     .nav--header {
         display: none;
         width: 100%;
-        padding: 100px 0;
         position: fixed;
         top: var(--height_header);
         left: 0;
@@ -345,12 +353,6 @@ button {
         bottom: 0;
         z-index: 999;
         background-color: var(--bg_burger);
-    }
-}
-
-@media (max-height: 500px) {
-    .nav--header {
-        padding-top: 50px;
     }
 }
 
@@ -387,18 +389,20 @@ button {
     .nav__list--header {
         width: 100%;
         height: 100%;
+        padding: 100px 0;
         gap: 50px;
         -ms-flex-direction: column;
         flex-direction: column;
         position: absolute;
         z-index: 1;
-        overflow: scroll;
+        overflow: auto;
     }
 }
 
 @media (max-width: 576px) {
     .nav__list--header {
         gap: 40px;
+        padding: 80px 0;
     }
 }
 
@@ -471,10 +475,6 @@ button {
     position: relative;
 }
 
-.btn--chevron:hover {
-    background: none;
-}
-
 .btn--chevron img {
     display: block;
     width: 24px;
@@ -485,6 +485,12 @@ button {
     z-index: 1;
     -webkit-transform: translateY(-45%);
     transform: translateY(-45%);
+}
+
+@media (max-width: 576px) {
+    .btn--chevron {
+        right: 5px;
+    }
 }
 
 .main {
@@ -604,7 +610,7 @@ button {
 
 @media (max-width: 576px) {
     .logo-certificat {
-        width: 250px;
+        width: 220px;
     }
 }
 
@@ -615,7 +621,7 @@ button {
     }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
     .logo-franchaizing {
         width: 220px;
     }
@@ -623,7 +629,7 @@ button {
 
 @media (max-width: 576px) {
     .logo-franchaizing {
-        width: 200px;
+        width: 160px;
     }
 }
 
@@ -642,16 +648,35 @@ button {
     }
 }
 
-.content img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 70px;
-}
-
 @media (max-width: 576px) {
     .content {
         padding: 50px 0;
     }
+}
+
+.embed {
+    max-width: 560px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+}
+
+.embed:after {
+    content: "";
+    display: block;
+    padding-top: 62.5%;
+}
+
+.embed video,
+.embed iframe,
+.embed object,
+.embed embed {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .content__title {
@@ -703,7 +728,7 @@ button {
 
 @media (max-width: 576px) {
     .content__header {
-        margin-bottom: 50px;
+        margin-bottom: 70px;
     }
 }
 
@@ -743,6 +768,12 @@ button {
 .content__description ul {
     padding-left: 15px;
     list-style: disc;
+}
+
+.content__description img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 70px;
 }
 
 .content__price-value {
@@ -798,6 +829,10 @@ button {
     transition: var(--transition_bg);
 }
 
+.cards--news .card {
+    height: 330px;
+}
+
 .card--color {
     background-color: var(--color_primary_5);
 }
@@ -810,7 +845,7 @@ button {
 
 @media (max-width: 576px) {
     .card {
-        padding: 30px;
+        padding: 25px;
         height: 300px;
     }
 
@@ -819,12 +854,14 @@ button {
     }
 }
 
+@media (max-width: 576px) {
+    .card__title-img {
+        width: 50px;
+        height: auto;
+    }
+}
+
 .card__title {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-bottom: 40px;
     font-size: var(--size_card_title);
     line-height: 1.2;
     font-weight: 500;
@@ -835,14 +872,18 @@ button {
     overflow: hidden;
 }
 
-.card__title--news {
-    margin-bottom: 18px;
-}
-
 @media (max-width: 576px) {
     .card__title {
         -webkit-line-clamp: 2;
     }
+}
+
+.card__header {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 40px;
 }
 
 .card__time {
@@ -948,7 +989,7 @@ button {
 
 @media (max-width: 576px) {
     .itc__img {
-        width: 250px;
+        width: 230px;
         height: auto;
     }
 }
@@ -1064,6 +1105,13 @@ button {
 
 .pagintaion__item.active {
     background-color: var(--color_primary_1_darker);
+}
+
+@media (max-width: 576px) {
+    .pagintaion__item {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .pagination__before,
@@ -1288,32 +1336,27 @@ button {
         justify-content: center;
         width: 100%;
         height: 100%;
-        overflow-y: scroll;
-        overflow-x: hidden;
+        overflow: auto;
         border-radius: 0;
-        background-color: var(--color_primary_4);
-    }
-}
-
-@media (max-width: 576px) {
-    .modal--visible {
         background-color: var(--bg_modal);
     }
 }
 
-@media (max-height: 500px) {
-    .modal--visible {
+@media (max-height: 900px) {
+    .modal--visible.modal--2 {
         display: block;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
     }
 }
 
-@media (max-height: 900px) {
-    .modal--2 {
+@media (max-height: 600px) {
+    .modal--visible.modal--1 {
+        display: block;
         width: 100%;
         height: 100%;
-        overflow-y: scroll;
-        overflow-x: hidden;
-        border-radius: 0;
+        overflow: auto;
     }
 }
 
@@ -1334,8 +1377,8 @@ button {
 
 @media (max-height: 900px) {
     .modal--2 .modal__close {
-        top: 30px;
-        right: 30px;
+        top: 20px;
+        right: 20px;
     }
 }
 
@@ -1346,7 +1389,7 @@ button {
     }
 }
 
-@media (max-height: 500px) {
+@media (max-height: 600px) {
     .modal__close {
         top: 20px;
         right: 20px;
@@ -1357,8 +1400,8 @@ button {
     .modal__close {
         width: 40px;
         height: 40px;
-        top: 0;
-        right: 0;
+        top: 20px;
+        right: 20px;
     }
 }
 
@@ -1377,6 +1420,7 @@ button {
 .modal__form-input,
 .modal__form-area {
     width: 100%;
+    max-width: 900px;
     padding: 20px 25px;
     font-family: inherit;
     font-size: var(--size_modal_input);
@@ -1394,21 +1438,32 @@ button {
     border: 3px solid var(--color_primary_5_darker);
 }
 
+@media (max-width: 576px) {
+    .modal__form-input,
+  .modal__form-area {
+        padding: 15px 20px;
+    }
+}
+
 .modal__form-input::-webkit-input-placeholder, .modal__form-area::-webkit-input-placeholder {
     color: var(--color_primary_2);
+    font-size: var(--size_modal_input);
 }
 
 .modal__form-input:-ms-input-placeholder, .modal__form-area:-ms-input-placeholder {
     color: var(--color_primary_2);
+    font-size: var(--size_modal_input);
 }
 
 .modal__form-input::-ms-input-placeholder, .modal__form-area::-ms-input-placeholder {
     color: var(--color_primary_2);
+    font-size: var(--size_modal_input);
 }
 
 .modal__form-input::placeholder,
 .modal__form-area::placeholder {
     color: var(--color_primary_2);
+    font-size: var(--size_modal_input);
 }
 
 .modal__form-area {
@@ -1651,4 +1706,11 @@ button {
     line-height: 140%;
     font-weight: 400;
     color: var(--color_primary_6);
+}
+
+@media (max-width: 576px) {
+    .logo-franchaizing-footer {
+        width: 120px;
+        height: auto;
+    }
 }
