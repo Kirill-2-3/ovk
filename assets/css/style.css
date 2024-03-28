@@ -112,7 +112,7 @@
         --size_modal_title: 23px;
         --size_nav_header: 20px;
         --size_pagination: 18px;
-        --size_content_description_title: 20px;
+        --size_content_description_title: 22px;
         --size_content_subtitle: 18px;
         --size_nav_footer: 16px;
         --size_copyright: 12px;
@@ -488,8 +488,10 @@ button {
 }
 
 @media (max-width: 576px) {
-    .btn--chevron {
-        right: 5px;
+    .btn--chevron img {
+        width: 20px;
+        height: 20px;
+        right: 10px;
     }
 }
 
@@ -580,6 +582,12 @@ button {
 @media (max-width: 1200px) {
     .logo-franchaizing {
         margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo-franchaizing {
+        margin-bottom: 30px;
     }
 }
 
